@@ -35,12 +35,15 @@ Point d'entrée du programme.
 - **Ex4.py** :  
 La classe `Ex4` va lancer la série de méthodes demandées dans l'exercice 4 via la méthode `start()`
 
+- **Ex5.py** :  
+  La classe `Ex5` va lancer la série de méthodes demandées dans l'exercice 5 via la méthode `start()`
+
+
 - **utils/IP_utils.py** :    
-- `detect_ip_type(ip)` retourne `'IPv4'`, `'IPv6'` ou `'Bad Ip'` selon l'adresse passée.  
-- `detect_multiple_ip(ips)` accepte une liste ou un dictionnaire d'IPs et affiche le résultat pour chacune d'elles (elle lève une `ValueError` si les éléments ne sont pas des chaînes de caractères).
+Sert des fonctions utiles aux traitement d'Ips
 
 - **utils/Tools_utils.py** :  
-La classe `Tools` est la pour les utilitaires generiques.
+La classe `Tools` est la pour les utilitaires generiques. Principalement pour la gestion de fichier
 ## Exécution
 
 Pour lancer le programme, exécutez simplement le fichier `main.py` :
@@ -53,9 +56,3 @@ python3 main.py
 
 - Ce projet utilise le module externe [click](https://pypi.org/project/click/) pour gérer la saisie utilisateur.
 - Pour l'affichage coloré, la bibliothèque [Colorama](https://pypi.org/project/colorama/) est utilisée.
-
-### Décorateurs de débogage (Verbose)
-
-
-- Les paramètres passés à la fonction (avant ou après son exécution).
-- La valeur de retour de la fonction.

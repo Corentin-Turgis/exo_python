@@ -11,7 +11,7 @@ class Ex5:
         pass
 
     def start(self):
-        mew = PokemonApi.get_pokemon('mew')
+        mew = PokemonApi.get_pokemon_atk('battle-armor')
         self.__create_sample_csv()
         Tools.csv_find_and_replace(f'{WORKING_DIR}/assets/sample.csv', "Alice", "Bob")
 

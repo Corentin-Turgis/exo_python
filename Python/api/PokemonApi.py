@@ -1,9 +1,13 @@
 import requests
 
+from Python.decorators.verbose_test import verbose_return
+
+
 class PokemonApi:
     @staticmethod
-    def get_pokemon(name):
-        url = f"https://pokeapi.co/api/v2/pokemon/{name.lower()}"
+    @verbose_return
+    def get_pokemon_atk(name):
+        url = f"https://pokeapi.co/api/v2/ability/{name.lower()}"
         try:
             res = requests.get(url)
             res.raise_for_status()
