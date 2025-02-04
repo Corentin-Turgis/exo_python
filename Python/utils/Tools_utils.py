@@ -88,3 +88,16 @@ class Tools:
             print(f"Fichier JSON créé avec succès : {file_path}")
         except Exception as e:
             print(f"Erreur lors de la création du fichier JSON : {e}")
+
+    @staticmethod
+    def dict_to_csv(data: dict, csv_file_path: str) -> None:
+        try:
+            with open(csv_file_path, "w", newline="", encoding="utf-8") as csvfile:
+                fieldnames = ["Clé", "Valeur"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer.writeheader()
+                for key, value in data.items():
+                    writer.writerow({"Clé": key, "Valeur": value})
+            print(f"Fichier CSV créé avec succès : {csv_file_path}")
+        except Exception as e:
+            print(f"Erreur lors de la création du fichier CSV : {e}")
