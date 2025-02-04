@@ -17,6 +17,7 @@ class Ex5:
 
         my_dict = Tools.file_to_dict(f'{WORKING_DIR}/assets/replace_my_words.txt')
         Tools.dict_to_json(my_dict, f'{WORKING_DIR}/assets/words.json')
+        Tools.dict_to_csv(my_dict, f'{WORKING_DIR}/assets/words.csv')
 
 
     @staticmethod
