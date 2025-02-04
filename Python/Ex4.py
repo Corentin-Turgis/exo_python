@@ -8,21 +8,16 @@ class Ex4:
         "2001:0db8:85a3::8a2e:0370:7334",
         "256.256.256.256"
     ]
-
     bad_ips = [
         123, "Not an IP", None
     ]
-
     ips_dict = {
         "local": "127.0.0.1",
         "public": "8.8.8.8",
         "ipv6": "2001:4860:4860::8888",
         "bad": "999.999.999.999"
     }
-
-    bad_ips_dict = (
-        [8, 6]
-    )
+    bad_ips_dict = ([8, 6])
 
     def __init__(self):
         pass
@@ -56,3 +51,11 @@ class Ex4:
             IP.detect_multiple_ip(self.bad_ips_dict)
         except ValueError as e:
             print(e.args[0])
+
+
+    def __replace_words(self):
+        file_path = Tools.ask('Quel fichier modifier (assets/replace_my_words.txt) :')
+        str = Tools.ask('Que voulez-vous changer (ancienne_chaine) :')
+        x = Tools.ask('Par quoi la modifier (x) :')
+
+        Tools.search_n_replace_in_file(file_path, str, x)
