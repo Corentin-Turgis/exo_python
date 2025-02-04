@@ -1,3 +1,4 @@
+import csv
 import fileinput
 import sys
 from click import prompt
@@ -52,3 +53,27 @@ class Tools:
             line_content = file_dict[line_number]
             char_count = len(line_content)
             print(f"Ligne numéro {line_number} : {char_count} caractères → \"{line_content}\"")
+
+    @staticmethod
+    def csv_find_and_replace(file_path, search_str, replace_str):
+        csv.field_size_limit(sys.maxsize)
+        try:
+            with open(file_path, 'r', newline='', encoding='utf-8') as csvfile:
+                reader = csv.reader(csvfile)
+                rows = list(reader)
+        except Exception as e:
+            print(f"Erreur lors de la lecture du fichier CSV: {e}")
+            return
+
+        new_rows = []
+        for row in rows:
+            new_row = [cell.replace(search_str, replace_str) for cell in row]
+            new_rows.append(new_row)
+
+        try:
+            with open(f'{file_path}.new.csv', 'w', newline='', encoding='utf-8') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerows(new_rows)
+            print(f"Find and replace terminé dans le fichier CSV: {file_path}")
+        except Exception as e:
+            print(f"Erreur lors de l'écriture du fichier CSV: {e}")
