@@ -38,7 +38,7 @@ def validate_ip_dict(ip_dict):
 
 def replace_letters_in_file(file_path, letters_to_replace, replacement="x"):
     try:
-        with fileinput.FileInput(file_path, inplace=True, backup='.bak') as file:
+        with fileinput.FileInput(file_path, inplace=True, backup='.old') as file:
             for line in file:
                 for letter in letters_to_replace:
                     line = line.replace(letter, replacement)
@@ -65,7 +65,7 @@ if __name__ == "__main__":
     print(validate_ip_dict(ip_dict))
 
     file_path = "test.txt"
-    replace_letters_in_file(file_path, ["a", "e", "i", "o", "u"])
+    replace_letters_in_file(file_path, ["a"])
 
     file_content = file_to_dict(file_path)
     display_file_content(file_content)
