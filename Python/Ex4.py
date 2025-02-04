@@ -52,10 +52,13 @@ class Ex4:
         except ValueError as e:
             print(e.args[0])
 
-
-    def __replace_words(self):
+    @staticmethod
+    def __replace_words():
         file_path = Tools.ask('Quel fichier modifier (assets/replace_my_words.txt) :')
-        str = Tools.ask('Que voulez-vous changer (ancienne_chaine) :')
+        str_to_replace = Tools.ask('Que voulez-vous changer (ancienne_chaine) :')
         x = Tools.ask('Par quoi la modifier (x) :')
 
-        Tools.search_n_replace_in_file(file_path, str, x)
+        try:
+            Tools.search_n_replace_in_file(file_path, str_to_replace, x)
+        except Exception as e:
+            print(e)
