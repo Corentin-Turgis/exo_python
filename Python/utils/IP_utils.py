@@ -5,9 +5,6 @@ from Python.decorators.verbose_test import *
 
 class IP:
     @staticmethod
-    @verbose_params
-    @verbose_return
-    @verbose_params_end
     def check_ipv4(ip):
         try:
             ipaddress.IPv4Address(ip)
@@ -33,6 +30,9 @@ class IP:
             return 'Bad Ip'
 
     @staticmethod
+    @verbose_params
+    @verbose_return
+    @verbose_params_end
     def detect_multiple_ip(ips):
         if isinstance(ips, dict):
             ips = ips.values()

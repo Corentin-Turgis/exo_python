@@ -16,6 +16,17 @@ exo_python/
         └── Tools_utils.py
 ```
 
+## Décorateurs pour tests
+
+Le module `utils/decorators.py` contient plusieurs décorateurs permettant d'afficher en couleur dans la console les informations sur les appels de fonctions :
+
+
+- **@verbose_params** : Affiche les paramètres (args et kwargs) avec lesquels la fonction est appelée, avant son exécution.
+- **@verbose_return** : Affiche la valeur de retour de la fonction après son exécution.
+- **@verbose_params_no_exec** : Affiche les paramètres qui auraient été passés à la fonction, sans exécuter celle-ci.
+- **@verbose_params_end** : Affiche les paramètres avec lesquels la fonction a été appelée, après son exécution.
+
+
 ### Détail des fichiers
 
 - **main.py** :  
@@ -40,6 +51,11 @@ python3 main.py
 
 ### Dépendances
 
-Ce projet utilise le module externe [click](https://pypi.org/project/click/) pour gérer la saisie utilisateur.
+- Ce projet utilise le module externe [click](https://pypi.org/project/click/) pour gérer la saisie utilisateur.
+- Pour l'affichage coloré, la bibliothèque [Colorama](https://pypi.org/project/colorama/) est utilisée.
+
+### Décorateurs de débogage (Verbose)
 
 
+- Les paramètres passés à la fonction (avant ou après son exécution).
+- La valeur de retour de la fonction.

@@ -37,7 +37,6 @@ def verbose_params_no_exec(func):
         print(f"[verbose_params_no_exec] La fonction '{func.__name__}' serait appelée avec :")
         print("  - args:", args)
         print("  - kwargs:", kwargs)
-        print("[//////////////////////]")
     return wrapper
 
 def verbose_params_end(func):
