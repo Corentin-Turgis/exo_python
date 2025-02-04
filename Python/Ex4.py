@@ -26,6 +26,7 @@ class Ex4:
         self.__check_uniq_ip()
         self.__check_ip_list()
         self.__check_ip_dict()
+        self.__replace_words()
 
     @staticmethod
     def __check_uniq_ip():
@@ -54,11 +55,11 @@ class Ex4:
 
     @staticmethod
     def __replace_words():
-        file_path = Tools.ask('Quel fichier modifier (assets/replace_my_words.txt) :')
-        str_to_replace = Tools.ask('Que voulez-vous changer (ancienne_chaine) :')
-        x = Tools.ask('Par quoi la modifier (x) :')
+        file_path = Tools.ask('Quel fichier modifier', default='Python/assets/replace_my_words.txt')
+        str_to_replace = Tools.ask('Que voulez-vous changer', default='ancienne_chaine')
+        x = Tools.ask('Par quoi la modifier', default='x')
 
         try:
             Tools.search_n_replace_in_file(file_path, str_to_replace, x)
         except Exception as e:
-            print(e)
+            print(f"Erreur : {e}")

@@ -4,8 +4,8 @@ from click import prompt
 
 class Tools:
     @staticmethod
-    def ask(str_to_show):
-        return prompt(str_to_show)
+    def ask(str_to_show, default=None):
+        return prompt(str_to_show, default=default)
 
     @staticmethod
     def search_n_replace_in_file(file_path, string, x):

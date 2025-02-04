@@ -37,4 +37,4 @@ class IP:
             raise ValueError("WARNING => ips must contains only strings")
 
         for ip in ips:
-            print(IP.detect_ip_type(ip))
+            print(f"{ip} : " + IP.detect_ip_type(ip))
