@@ -28,6 +28,7 @@ class Ex4:
         self.__check_ip_list()
         self.__check_ip_dict()
         self.__replace_words()
+        self.__file_to_dict()
 
     @staticmethod
     def __check_uniq_ip():
@@ -64,3 +65,11 @@ class Ex4:
             Tools.search_n_replace_in_file(file_path, str_to_replace, x)
         except Exception as e:
             print(f"Erreur : {e}")
+
+    @staticmethod
+    def __file_to_dict():
+        file_path = Tools.ask('Quel fichier voulez-vous lire', default=f'{WORKING_DIR}/assets/replace_my_words.txt')
+        try:
+            Tools.display_file_dict(Tools.file_to_dict(file_path))
+        except Exception as e:
+            print(f'{e}')
