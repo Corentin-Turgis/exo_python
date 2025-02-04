@@ -1,8 +1,0 @@
-Bienvenue dans ce fichier de test.
-Ce document a été créé pour tester la méthode replace_by_x.
-Dans ce texte, nous utilisons la chaîne "ancienne_chaine" comme exemple à remplacer.
-Voici quelques occurrences de ancienne_chaine :
-- ancienne_chaine
-- ancienne_chaine
-La méthode devrait remplacer toutes ces occurrences par la chaîne que tu souhaites (par exemple "nouvelle_chaine").
-Fin du test.

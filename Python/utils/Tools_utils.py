@@ -2,12 +2,16 @@ import fileinput
 import sys
 from click import prompt
 
+from Python.decorators.verbose_test import *
+
+
 class Tools:
     @staticmethod
     def ask(str_to_show, default=None):
         return prompt(str_to_show, default=default)
 
     @staticmethod
+    @verbose_params
     def search_n_replace_in_file(file_path, string, x):
         try:
             for line in fileinput.input(files=[file_path], inplace=True, backup=".bak", encoding="utf-8"):

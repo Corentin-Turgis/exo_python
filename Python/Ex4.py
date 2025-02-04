@@ -1,3 +1,4 @@
+from Python.env import WORKING_DIR
 from utils.IP_utils import IP
 from utils.Tools_utils import Tools
 
@@ -55,7 +56,7 @@ class Ex4:
 
     @staticmethod
     def __replace_words():
-        file_path = Tools.ask('Quel fichier modifier', default='Python/assets/replace_my_words.txt')
+        file_path = Tools.ask('Quel fichier modifier', default=f'{WORKING_DIR}/assets/replace_my_words.txt')
         str_to_replace = Tools.ask('Que voulez-vous changer', default='ancienne_chaine')
         x = Tools.ask('Par quoi la modifier', default='x')
 
