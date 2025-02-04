@@ -25,7 +25,7 @@ Le module `utils/decorators.py` contient plusieurs décorateurs permettant d'aff
 - **@verbose_return** : Affiche la valeur de retour de la fonction après son exécution.
 - **@verbose_params_no_exec** : Affiche les paramètres qui auraient été passés à la fonction, sans exécuter celle-ci.
 - **@verbose_params_end** : Affiche les paramètres avec lesquels la fonction a été appelée, après son exécution.
-
+- **@log_verbose** : Execute params, return et params_end mais log tout dans /logs/logs.txt
 
 ### Détail des fichiers
 

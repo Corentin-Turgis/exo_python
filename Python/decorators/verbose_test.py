@@ -1,4 +1,6 @@
 import functools
+import os
+
 from colorama import Fore, Style
 
 def verbose_params(func):
@@ -51,6 +53,37 @@ def verbose_params_end(func):
         print("  - args :", args)
         print("  - kwargs :", kwargs)
         print(Style.RESET_ALL)
+        return result
+    return wrapper
+
+def log_verbose(func):
+    """
+    Décorateur qui écrit dans le fichier 'logs/logs.txt' :
+      - Les paramètres (args et kwargs) avec lesquels la fonction est appelée, avant son exécution.
+      - Les paramètres après l'exécution (même valeurs, ici pour information).
+      - La valeur de retour de la fonction.
+    """
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        log_dir = "logs"
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+        log_file = os.path.join(log_dir, "logs.txt")
+
+        with open(log_file, "a", encoding="utf-8") as f:
+            f.write(f"[log_verbose] Avant '{func.__name__}':\n")
+            f.write(f"    args: {args}\n")
+            f.write(f"    kwargs: {kwargs}\n")
+
+        result = func(*args, **kwargs)
+
+        with open(log_file, "a", encoding="utf-8") as f:
+            f.write(f"[log_verbose] Après '{func.__name__}':\n")
+            f.write(f"    args: {args}\n")
+            f.write(f"    kwargs: {kwargs}\n")
+            f.write(f"    Retour: {result}\n")
+            f.write("-" * 40 + "\n")
+
         return result
     return wrapper
 
