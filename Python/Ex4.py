@@ -70,6 +70,7 @@ class Ex4:
     def __file_to_dict():
         file_path = Tools.ask('Quel fichier voulez-vous lire', default=f'{WORKING_DIR}/assets/replace_my_words.txt')
         try:
-            Tools.display_file_dict(Tools.file_to_dict(file_path))
+            my_dict = Tools.file_to_dict(file_path)
+            Tools.display_file_dict(my_dict)
         except Exception as e:
             print(f'{e}')

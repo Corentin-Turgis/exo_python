@@ -15,6 +15,10 @@ class Ex5:
         self.__create_sample_csv()
         Tools.csv_find_and_replace(f'{WORKING_DIR}/assets/sample.csv', "Alice", "Bob")
 
+        my_dict = Tools.file_to_dict(f'{WORKING_DIR}/assets/replace_my_words.txt')
+        Tools.dict_to_json(my_dict, f'{WORKING_DIR}/assets/words.json')
+
+
     @staticmethod
     def __create_sample_csv():
         data = [

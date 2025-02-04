@@ -1,6 +1,8 @@
 import csv
 import fileinput
+import json
 import sys
+
 from click import prompt
 
 from Python.decorators.verbose_test import *
@@ -77,3 +79,12 @@ class Tools:
             print(f"Find and replace terminé dans le fichier CSV: {file_path}")
         except Exception as e:
             print(f"Erreur lors de l'écriture du fichier CSV: {e}")
+
+    @staticmethod
+    def dict_to_json(data, file_path):
+        try:
+            with open(file_path, "w", encoding="utf-8") as json_file:
+                json.dump(data, json_file, ensure_ascii=False, indent=4)
+            print(f"Fichier JSON créé avec succès : {file_path}")
+        except Exception as e:
+            print(f"Erreur lors de la création du fichier JSON : {e}")
