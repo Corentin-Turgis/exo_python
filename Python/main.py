@@ -1,7 +1,7 @@
-from Python.packages.bank.PersonalBankAccount import PersonalBankAccount
+from Python.packages.cards_game import Board, Player
 
-personal_account = PersonalBankAccount(account_number="AB123456", balance=1000.0, first_name="Alice", last_name="Dupont", address="123 Rue Exemple, Paris")
-print(f'{personal_account}')
+table1 = Board()
+table1.player_join(Player('corentin'))
+table1.player_join(Player('flora'))
 
-personal_account.deposit(10.5)
-print(f'{personal_account}')
+print(table1)

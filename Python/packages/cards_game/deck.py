@@ -1,11 +1,11 @@
 import random
 from collections import namedtuple, deque
-from Python.packages.cards_game import CARD_COlORS, CARD_RANKS, DuplicateCard
 
 Card = namedtuple('Card', ['rank', 'color'])
 
 class Deck:
     def __init__(self):
+        from Python.packages.cards_game import CARD_COlORS, CARD_RANKS
         self.cards = deque(Card(rank, color) for color in CARD_COlORS for rank in CARD_RANKS)
 
     def shuffle(self):
@@ -15,8 +15,10 @@ class Deck:
         return self.cards.popleft() if self.cards else None
 
     def add_card(self, card):
+        from Python.packages.cards_game import DuplicateCard
         if card in self.cards:
             raise DuplicateCard(f'Card {card} is already in deck {self}')
+        self.shuffle()
 
     def __len__(self):
         return len(self.cards)
