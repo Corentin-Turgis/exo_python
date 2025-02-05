@@ -36,3 +36,17 @@ class Card(namedtuple('CardBase', ['rank', 'color'])):
 
     def __repr__(self):
         return f"Card(rank={self.rank}, color={self.color})"
+
+    @staticmethod
+    def display_cards(cards):
+        cards = list(cards)
+        if not cards:
+            print("No cards here")
+            return
+
+        for i in range(0, len(cards), 5):
+            chunk = cards[i:i+5]
+
+            for line_i in range(len(chunk[0].ascii_lines)):
+                line_parts = [card.ascii_lines[line_i] for card in chunk]
+                print(" ".join(line_parts))

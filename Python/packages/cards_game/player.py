@@ -12,7 +12,7 @@ class Player:
         if card in self.hand:
             raise CheatException(f'{self.pseudo} is trying to cheat ? {card} is already in is hand')
         self.hand.add(card)
-        print(f'{self.pseudo} draw a {card}')
+        print(f'{self.pseudo} draw a {repr(card)}')
 
     def remove_card_from_hand(self, card: Card):
         if card not in self.hand:
