@@ -22,6 +22,18 @@ class Deck:
             raise DuplicateCard(f'Card {card} is already in deck {self}')
         self.shuffle()
 
+    def deal_deck(self, nb_part):
+        if nb_part <= 0:
+            raise ValueError('nb_part must be greater than 0')
+        parts = [[] for _ in range(nb_part)]
+        i = 0
+        while self.cards:
+            card = self.draw()
+            parts[i % nb_part].append(card)
+            i += 1
+        return parts
+
+
     def __len__(self):
         return len(self.cards)
 
