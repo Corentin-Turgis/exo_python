@@ -1,8 +1,8 @@
 import csv
 
-from Python.api.PokemonApi import PokemonApi
-from Python.env import WORKING_DIR
-from Python.utils.Tools_utils import Tools
+from Python.config import WORKING_DIR
+from Python.packages.api.pokemon_api import get_pokemon_atk
+from Python.packages.tools import csv_find_and_replace, file_to_dict, dict_to_json, dict_to_csv
 
 
 class Ex5:
@@ -11,13 +11,13 @@ class Ex5:
         pass
 
     def start(self):
-        mew = PokemonApi.get_pokemon_atk('battle-armor')
+        battle_armor = get_pokemon_atk('battle-armor')
         self.__create_sample_csv()
-        Tools.csv_find_and_replace(f'{WORKING_DIR}/assets/sample.csv', "Alice", "Bob")
+        csv_find_and_replace(f'{WORKING_DIR}/assets/sample.csv', "Alice", "Bob")
 
-        my_dict = Tools.file_to_dict(f'{WORKING_DIR}/assets/replace_my_words.txt')
-        Tools.dict_to_json(my_dict, f'{WORKING_DIR}/assets/words.json')
-        Tools.dict_to_csv(my_dict, f'{WORKING_DIR}/assets/words.csv')
+        my_dict = file_to_dict(f'{WORKING_DIR}/assets/replace_my_words.txt')
+        dict_to_json(my_dict, f'{WORKING_DIR}/assets/words.json')
+        dict_to_csv(my_dict, f'{WORKING_DIR}/assets/words.csv')
 
 
     @staticmethod
