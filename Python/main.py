@@ -1,6 +1,6 @@
 from Ex5 import Ex5
 from Ex4 import Ex4
-from Python.Bank.PersonalBankAccount import PersonalBankAccount
+from Python.packages.bank.PersonalBankAccount import PersonalBankAccount
 
 app = Ex4()
 app.start()

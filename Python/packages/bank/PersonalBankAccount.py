@@ -1,6 +1,4 @@
-from Python.Bank.BankAccount import BankAccount
-from Python.Bank.ClientIdentity import ClientIdentity
-
+from Python.packages.bank import BankAccount, ClientIdentity
 
 class PersonalBankAccount(BankAccount, ClientIdentity):
     def __init__(self, account_number: str, first_name: str, last_name: str, address: str = "", balance: float = 0.0):
