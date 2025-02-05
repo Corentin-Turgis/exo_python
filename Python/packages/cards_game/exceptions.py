@@ -3,3 +3,9 @@ class CheatException(Exception):
 
 class DuplicateCard(Exception):
     pass
+
+class RemoveException(Exception):
+    pass
+
+class DuplicateUserException(Exception):
+    pass

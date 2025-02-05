@@ -1,12 +1,14 @@
 import random
-from collections import namedtuple, deque
+from collections import deque
 
-Card = namedtuple('Card', ['rank', 'color'])
+from .card import Card
+
 
 class Deck:
     def __init__(self):
         from Python.packages.cards_game import CARD_COlORS, CARD_RANKS
         self.cards = deque(Card(rank, color) for color in CARD_COlORS for rank in CARD_RANKS)
+        self.shuffle()
 
     def shuffle(self):
         random.shuffle(self.cards)
@@ -24,4 +26,4 @@ class Deck:
         return len(self.cards)
 
     def __repr__(self):
-        return f"Deck({len(self.cards)} cards remainings"
+        return f"{len(self.cards)} cards remainings"
