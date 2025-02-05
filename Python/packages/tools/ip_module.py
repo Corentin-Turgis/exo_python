@@ -15,9 +15,9 @@ def check_ipv6(ip):
         return False
 
 def detect_ip_type(ip):
-    if ip.check_ipv4(ip):
+    if check_ipv4(ip):
         return 'IPv4'
-    elif ip.check_ipv6(ip):
+    elif check_ipv6(ip):
         return 'IPv6'
     else:
         return 'Bad Ip'
@@ -33,4 +33,4 @@ def detect_multiple_ip(ips):
         raise ValueError("WARNING => ips must contains only strings")
 
     for ip in ips:
-        print(f"{ip} : " + ip.detect_ip_type(ip))
+        print(f"{ip} : " + detect_ip_type(ip))
