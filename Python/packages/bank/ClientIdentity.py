@@ -6,3 +6,6 @@ class ClientIdentity:
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}" + (f", {self.address}" if self.address else "")
+
+    def __repr__(self):
+        return f'ClientIdentity({self.first_name}, {self.last_name}, {self.address})'

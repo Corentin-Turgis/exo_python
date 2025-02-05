@@ -7,3 +7,6 @@ class PersonalBankAccount(BankAccount, ClientIdentity):
 
     def __str__(self):
         return f"Compte bancaire de {ClientIdentity.__str__(self)} (N° {self.account_number}) - Solde : {self.balance:.2f}€"
+
+    def __repr__(self):
+        return f"PersonalBankAccount({BankAccount.__repr__(self)},{ClientIdentity.__repr__(self)})"

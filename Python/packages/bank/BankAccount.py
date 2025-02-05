@@ -1,14 +1,18 @@
+from Python.decorators.verbose_test import verbose_params, verbose_return
+
+
 class BankAccount:
     def __init__(self, account_number: str, balance: float = 0.0):
         self.account_number = account_number
         self.balance = balance
 
+    @verbose_params
+    @verbose_return
     def deposit(self, amount: float):
         if amount > 0:
             self.balance += amount
-            print(f"Dépôt de {amount} effectué. Nouveau solde: {self.balance:.2f}€")
         else:
-            print("Le montant du dépôt doit être positif.")
+            pass
 
     def withdraw(self, amount: float):
         if amount > 0:
@@ -22,3 +26,6 @@ class BankAccount:
 
     def __str__(self):
         return f"Compte #{self.account_number} avec un solde de {self.balance:.2f}€"
+
+    def __repr__(self):
+        return f'BankAccount({self.account_number}, {self.balance})'
