@@ -1,6 +1,6 @@
 import random
 
-from fast_api_cards.app.models import Deck, Rank, Shape, Card
+from ..models import Deck, Rank, Shape, Card
 from typing import List
 
 def create_shuffled_deck() -> Deck:

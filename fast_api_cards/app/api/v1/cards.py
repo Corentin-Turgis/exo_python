@@ -1,8 +1,10 @@
 from fastapi import APIRouter, HTTPException
 from typing import List
+
+from pydantic import BaseModel
+
 from fast_api_cards.app.db.models_pewee import CardORM
 from fast_api_cards.app.models import Card  # Pydantic
-from pydantic import BaseModel
 
 router = APIRouter()
 

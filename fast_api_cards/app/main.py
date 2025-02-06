@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
-from fast_api_cards.app.api import deck_router
-from fast_api_cards.app.db.database import db
-from fast_api_cards.app.db.models_pewee import CardORM
+from .api import deck_router
+from .db.database import db
+from .db.models_pewee import CardORM
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
