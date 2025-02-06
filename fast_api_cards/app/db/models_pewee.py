@@ -8,4 +8,4 @@ class BaseORM(Model):
 class CardORM(BaseORM):
     id = AutoField()
     rank = CharField()
-    suit = CharField()
+    shape = CharField()
