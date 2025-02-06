@@ -1,38 +1,32 @@
 import random
-from ..models.card_model import CardModel
-from ..models.deck_model import DeckModel
 
-RANKS = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-SHAPES = ["heart", "diamond", "club", "spade"]
+from fast_api_cards.app.models import Deck, Rank, Shape, Card
+from typing import List
 
-def create_shuffled_deck() -> DeckModel:
-    cards = []
-    for shape in SHAPES:
-        for rank in RANKS:
-            cards.append(CardModel(rank=rank, shape=shape))
-
+def create_shuffled_deck() -> Deck:
+    """
+    Crée un deck de 52 cartes et le mélange.
+    """
+    cards = [
+        Card(rank=r, shape=s)  # r est un Rank, s un Suit
+        for s in Shape
+        for r in Rank
+    ]
     random.shuffle(cards)
+    return Deck(cards=cards)
 
-    return DeckModel(cards=cards)
-
-def deal_deck(deck: DeckModel, nb_part: int) -> list[list[CardModel]]:
+def deal_deck(deck: Deck, nb_parts: int) -> List[List[Card]]:
     """
-    Distribue toutes les cartes de 'deck' (round-robin).
-    Retourne une mains.
+    Distribue toutes les cartes de `deck` en nb_parts mains,
+    de manière round-robin.
     """
-    if nb_part <= 0:
-        raise ValueError("Le nombre de parts doit être > 0")
+    if nb_parts <= 0 or nb_parts > len(deck.cards):
+        raise ValueError("nb_parts doit être >= 1")
 
-    cards = deck.cards[:]  # copie
-    parts = [[] for _ in range(nb_part)]
+    hands = [[] for _ in range(nb_parts)]
     i = 0
-
-    while cards:
-        # On pioche la "dernière" plus performant
-        card = cards.pop()
-        parts[i % nb_part].append(card)
+    for card in deck.cards:
+        hands[i % nb_parts].append(card)
         i += 1
 
-    # "première" carte -> pop(0)
-    # moins performant
-    return parts
+    return hands
